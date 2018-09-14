@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Router } from '@angular/router'; 
 
 import { AngularFireModule } from 'angularfire2'; 
-import { AngularFireDatabaseModule } from 'angularfire2/database'; 
+import { AngularFireDatabaseModule } from 'angularfire2/database-deprecated';
 import { AngularFireAuthModule } from 'angularfire2/auth'; 
 
 
@@ -45,9 +45,9 @@ import { appRoutes } from '../routes';
     RouterModule.forRoot(appRoutes),
     FormsModule,
     AngularFireModule,
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    AngularFireAuthModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
